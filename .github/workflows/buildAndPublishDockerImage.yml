@@ -31,8 +31,8 @@ jobs:
     # - run: npm test
     - name: downcase REPO
       run: |
-        echo "GITHUB_USERNAME=${secrets.REGISTRY_USERNAME,,}" >>${GITHUB_USERNAME}
-        echo "GITHUB_PASSWORD=${secrets.REGISTRY_PASSWORD,,}" >>${GITHUB_PASSWORD}
+        echo "REPO1=${secrets.REGISTRY_USERNAME,,}" >>${GITHUB_USERNAME}
+        echo "REPO2=${secrets.REGISTRY_PASSWORD,,}" >>${GITHUB_PASSWORD}
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
