@@ -36,7 +36,7 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ghcr.io/${{ github.repository }}:latest
+      run: docker build . --file Dockerfile --tag ghcr.io/${{ github.repository,, }}:latest
     - name: docker push
       run: |
-        docker push ghcr.io/${{ github.repository }}:latest
+        docker push ghcr.io/${{ github.repository,, }}:latest
