@@ -7,7 +7,7 @@ on:
           required: true
         REGISTRY_PASSWORD:
           required: true
-        
+
 jobs:
 
   node-build:
@@ -26,7 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i    
+    - run: npm i
+      - env:
+        NPM_AUTH_TOKEN: ${{ secrets.REGISTRY_PASSWORD }}
     - run: npm run build --if-present
     # - run: npm test
     - name: Login to GitHub Container Registry
